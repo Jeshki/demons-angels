@@ -1,23 +1,15 @@
-export const archangels = [
-  {
-    id: 'michael',
-    name: 'Michael',
-    description: 'Dangaus gynėjas ir karys.',
-    powers: ['Apsauga', 'Karinė strategija'],
-    domain: 'Gynyba'
-  },
-  {
-    id: 'gabriel',
-    name: 'Gabriel',
-    description: 'Dievo pasiuntinys.',
-    powers: ['Pranašystės', 'Žinios perdavimas'],
-    domain: 'Komunikacija'
-  },
-  {
-    id: 'raphael',
-    name: 'Raphael',
-    description: 'Sielų gydytojas.',
-    powers: ['Gydymas', 'Sielos apsauga'],
-    domain: 'Gydymas'
-  }
-];
+import ArchangelCard from '../components/ArchangelCard';
+import { archangels } from '../../data/archangels';
+
+export default function ArchangelsPage() {
+  return (
+    <div>
+      <h2 className="text-3xl font-bold text-yellow-600 mb-6">Archangelai</h2>
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {archangels.map((archangel) => (
+          <ArchangelCard key={archangel.id} {...archangel} />
+        ))}
+      </div>
+    </div>
+  );
+}
