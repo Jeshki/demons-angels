@@ -1,12 +1,12 @@
 import { notFound } from 'next/navigation';
 import { archangels } from '../../../data/archangels';
 
-export default function ArchangelPage({
+export default async function ArchangelPage({
   params,
 }: {
-  params: { id: string };
+  params: Promise<{ id: string }>;
 }) {
-  const { id } = params;
+  const { id } = await params;
   const archangel = archangels.find((a) => a.id === id);
   if (!archangel) {
     notFound();
