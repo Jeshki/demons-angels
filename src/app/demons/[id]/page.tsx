@@ -1,12 +1,12 @@
 import { notFound } from 'next/navigation';
 import { demons } from '../../../data/demons';
 
-export default function DemonPage({
+export default async function DemonPage({
   params,
 }: {
-  params: { id: string };
+  params: Promise<{ id: string }>;
 }) {
-  const { id } = params;
+  const { id } = await params;
   const demon = demons.find((d) => d.id === id);
   if (!demon) {
     notFound();
